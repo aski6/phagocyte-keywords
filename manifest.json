@@ -1,14 +1,14 @@
 {
-  "description": "A simple browser extension that hides articles about covid-19.",
+  "description": "A simple browser extension that hides articles based on a user-selected keyword list.",
   "manifest_version": 2,
-  "name": "Phagocyte",
+  "name": "Phagocyte-keywords",
   "version": "1.2",
   "icons": {
     "48": "icons/icon-48.png"
   },
   "browser_action": {
     "default_icon": "icons/icon-32.png",
-    "default_title": "Phagocyte",
+    "default_title": "Phagocyte-keywords",
     "default_popup": "popup/toggle.html"
   },
   "browser_specific_settings": {
