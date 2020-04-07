@@ -1,40 +1,9 @@
-const keywords = [
-  'atemmaske',
-  'beatmungsgerät',
-  'confinement',
-  'corona',
-  'cov-19',
-  'covid-19',
-  'COVID19',
-  'distanciation sociale',
-  'flatten the curve',
-  'flattenthecurve',
-  'infiziert',
-  'kontaktverbot',
-  'maskenpflicht',
-  'masque',
-  'n95',
-  'outbreak',
-  'pandemi',
-  'pandémie',
-  'quarant',
-  'réanimation',
-  'restez chez vous',
-  'sars-cov-2',
-  'schutzmaske',
-  'selbstisolation',
-  'self isolation',
-  'seuche',
-  'social distancing',
-  'socialdistancing',
-  'stay at home',
-  'stay home',
-  'stayathome',
-  'stayhome',
-  'viren',
-  'virus'
-];
-const regexp = `(${keywords.join('|')})`;
+var regexp;
+
+function genNewRegex() {
+  let keywords = browser.storage.sync.get('phagocyte-keywords');
+  regexp = `(${keywords.join('|')})`;
+}
 
 const tagList = [
   'article',
@@ -81,6 +50,7 @@ function eat(collection) {
 }
 
 function eatEverything() {
+  genNewRegex();
   tagList.forEach(entry => eat(document.getElementsByTagName(entry)));
   classList.forEach(entry => eat(document.getElementsByClassName(entry)));
 }
