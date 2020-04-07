@@ -34,7 +34,12 @@ const classList = [
   'widget-type-calltoaction'
 ];
 
-//TODO try and re-use this to add keywords without reloading a page.
+//TODO try and add keywords without reloading a page.
+
+//Potentially broken function, present to be debugged in the future.
+//Currently, functionality from here has been moved into eatEverything().
+
+/*
 function genNewRegex() {
   return browser.storage.sync.get('phagocyteKeywords').then((res) => {
       returnkeywords = res.phagocyteKeywords;
@@ -44,6 +49,7 @@ function genNewRegex() {
     });
   });
 }
+*/
 
 function eat(collection, regexp) {
   [...collection].forEach(entry => {
@@ -54,7 +60,9 @@ function eat(collection, regexp) {
 }
 
 function eatEverything() {
-  genNewRegex().then((regexp) => {
+  browser.storage.sync.get('phagocyteKeywords').then((res) => {
+    keywords = res.phagocyteKeywords;
+    let regexp = `(${keywords.join('|')})`;
     console.log(regexp);
     tagList.forEach(entry => eat(document.getElementsByTagName(entry), regexp));
     classList.forEach(entry => eat(document.getElementsByClassName(entry), regexp));
