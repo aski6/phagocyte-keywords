@@ -11,34 +11,51 @@
     border-radius: 4px;
     color: #fff;
     background-color: #808a41;
-    /*
-    background-image: linear-gradient(124deg, #ff5747, #808a41);
-    */
-    background-size: 200% 200%;
   }
 
   #toggle:hover {
-    background-size: 150% 150%;
+    background-color: #707a31;
   }
 
   #toggle.disabled {
     background-color: #81dbde;
-    /*
-    background-image: linear-gradient(124deg, #81dbde, #0f9499);
-    */
+  }
+
+  #keyword-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #input-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction:row;
+  }
+
+  #keyword-input {
+    margin-left: 5px;
+    flex: 1;
+  }
+
+  /*
+   * Not used yet.
+   * Intended for buttons to remove individual list items.
+   */
+  #keyword-list button {
+	  text-alight: right;
   }
 </style>
 <body>
 <button id="toggle" class="enabled"><strong id="text">Disable</strong> phagocyte-keywords</button>
 <script src="toggle.js"></script>
-<div id="keyword-list-container">
-  <p>
-  Keywords:
-  </p>
+<div id="keyword-container">
+  <div id="input-container">
   <button id="add-keyword">
     +
   </button>
   <input type="text" id="keyword-input" name="keyword-input">
+  </div>
   <ul id="keyword-list">
   </ul>
   <button id="clear-keywords">
