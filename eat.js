@@ -1,10 +1,3 @@
-var regexp;
-
-function genNewRegex() {
-  let keywords = browser.storage.sync.get('phagocyte-keywords');
-  regexp = `(${keywords.join('|')})`;
-}
-
 const tagList = [
   'article',
   'iframe'
@@ -41,7 +34,18 @@ const classList = [
   'widget-type-calltoaction'
 ];
 
-function eat(collection) {
+//TODO try and re-use this to add keywords without reloading a page.
+function genNewRegex() {
+  return browser.storage.sync.get('phagocyteKeywords').then((res) => {
+      returnkeywords = res.phagocyteKeywords;
+      let regexp = `(${keywords.join('|')})`;
+      console.log("Generated regex, returning.");
+      return regexp;
+    });
+  });
+}
+
+function eat(collection, regexp) {
   [...collection].forEach(entry => {
     if (entry.outerHTML.toLowerCase().match(regexp)) {
       entry.style.display = 'none';
@@ -50,9 +54,11 @@ function eat(collection) {
 }
 
 function eatEverything() {
-  genNewRegex();
-  tagList.forEach(entry => eat(document.getElementsByTagName(entry)));
-  classList.forEach(entry => eat(document.getElementsByClassName(entry)));
+  genNewRegex().then((regexp) => {
+    console.log(regexp);
+    tagList.forEach(entry => eat(document.getElementsByTagName(entry), regexp));
+    classList.forEach(entry => eat(document.getElementsByClassName(entry), regexp));
+  });
 }
 
 browser.storage.sync.get('disabled').then((res) => {

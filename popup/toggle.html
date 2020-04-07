@@ -31,12 +31,20 @@
 <body>
 <button id="toggle" class="enabled"><strong id="text">Disable</strong> phagocyte-keywords</button>
 <script src="toggle.js"></script>
-<div id="keyword-list">
-  <ul>
-  </ul>
+<div id="keyword-list-container">
+  <p>
+  Keywords:
+  </p>
   <button id="add-keyword">
     +
   </button>
+  <input type="text" id="keyword-input" name="keyword-input">
+  <ul id="keyword-list">
+  </ul>
+  <button id="clear-keywords">
+	  Clear Keywords
+  </button>
 </div>
+<script type="text/javascript" src="keyword-list-management.js"></script>
 </body>
 </html>
