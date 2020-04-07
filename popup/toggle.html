@@ -11,7 +11,9 @@
     border-radius: 4px;
     color: #fff;
     background-color: #808a41;
+    /*
     background-image: linear-gradient(124deg, #ff5747, #808a41);
+    */
     background-size: 200% 200%;
   }
 
@@ -21,11 +23,20 @@
 
   #toggle.disabled {
     background-color: #81dbde;
+    /*
     background-image: linear-gradient(124deg, #81dbde, #0f9499);
+    */
   }
 </style>
 <body>
 <button id="toggle" class="enabled"><strong id="text">Disable</strong> phagocyte-keywords</button>
 <script src="toggle.js"></script>
+<div id="keyword-list">
+  <ul>
+  </ul>
+  <button id="add-keyword">
+    +
+  </button>
+</div>
 </body>
 </html>
