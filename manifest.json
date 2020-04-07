@@ -13,7 +13,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "{https://github.com/aski6/phagocyte-keywords}"
+      "id": "{74e4737f-5312-42af-a21f-30e3c3e229c3}"
     }
   },
   "content_scripts": [
