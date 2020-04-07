@@ -2,7 +2,7 @@
   "description": "A simple browser extension that hides articles based on a user-selected keyword list.",
   "manifest_version": 2,
   "name": "Phagocyte-keywords",
-  "version": "0.1.0",
+  "version": "1.0",
   "icons": {
     "48": "icons/icon-48.png"
   },
